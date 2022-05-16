@@ -1,5 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
+
+const StyledNav = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: auto;
+    p {
+        font-size: 24px;
+    };
+`
 
 const Navbar = () => {
     const [categories, setCategories] = useState<any>([]);
@@ -12,10 +23,10 @@ const Navbar = () => {
         fetchRecipes();
     }, [])
     return (
-        <div>
+        <StyledNav>
             {categories.map((category: any) => <Link to={`/categories/${category}`}> <p key={category}>{category}</p></Link>)}
-            <p>Testar navbar</p>
-        </div>
+            {/* <p>Testar navbar</p> */}
+        </StyledNav>
     )
 }
 export default Navbar;

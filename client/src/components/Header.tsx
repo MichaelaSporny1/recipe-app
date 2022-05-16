@@ -10,7 +10,7 @@ const StyledHeader = styled.header`
 
 const MyStyledHeader = () => (
     <StyledHeader>
-        <h1>Recipe-App</h1>
+        <h1>Tequila Mockingbird</h1>
     </StyledHeader>
 )
 
