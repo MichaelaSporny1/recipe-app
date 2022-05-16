@@ -1,10 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import CatFact from './components/RecipeList';
 import CategoryList from './components/CategoryList';
 import MyStyledHeader from './components/Header';
-import banner from './assets/banner.jpg'
+import RecipeList from './components/RecipeList';
 
 function App() {
   return (
@@ -22,6 +21,7 @@ function App() {
         </a> */}
       </header>
         <CategoryList/>
+        <RecipeList/>
     </div>
   );
 }
