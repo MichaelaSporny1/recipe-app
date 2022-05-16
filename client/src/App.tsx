@@ -1,9 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CategoryList from './components/CategoryList';
+import Navbar from './components/Navbar';
 import MyStyledHeader from './components/Header';
 import RecipeList from './components/RecipeList';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import RecipesByCategoryList from './components/CategoryList';
 
 function App() {
   return (
@@ -20,8 +22,11 @@ function App() {
           Learn React
         </a> */}
       </header>
-        <CategoryList/>
-        <RecipeList/>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<RecipeList/>}/>
+          <Route path="categories/:category" element={<RecipesByCategoryList/>}/>
+        </Routes>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import RecipeCard from "./RecipeCard";
 import { IRecipe } from "../interfaces";
 import styled from 'styled-components';
 
-
 const StyledWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -25,10 +24,11 @@ const RecipeList = () => {
     }, [])
 
     return (
-        <StyledWrapper>
-            {allRecipes.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>)}
-            {/* <h1>Testar</h1> */}
-        </StyledWrapper>
+        <div>
+            <StyledWrapper>
+                {allRecipes.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>)}
+            </StyledWrapper>
+        </div>
     )
 }
 
