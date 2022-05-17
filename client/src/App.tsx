@@ -6,6 +6,7 @@ import MyStyledHeader from './components/Header';
 import RecipeList from './components/RecipeList';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import RecipesByCategoryList from './components/CategoryList';
+import SingleRecipe from './components/SingleRecipe';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<RecipeList/>}/>
           <Route path="categories/:category" element={<RecipesByCategoryList/>}/>
+          <Route path="recipe/:recipeId" element={<SingleRecipe/>}/>
         </Routes>
     </div>
   );
