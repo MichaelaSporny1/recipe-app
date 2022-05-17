@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom';
 
 const StyledRecipeCard = styled.div`
     width: 19rem;
-    height: 22rem;
+     height: 22rem;
     background-color: lightgrey;
     margin: 1rem;
     border-radius: 5px;
     img {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-    };    
+    };
+    a {
+        text-decoration: none; 
+        color: black;
+    };   
 `
 
 // const StyledWrapper = styled.div`

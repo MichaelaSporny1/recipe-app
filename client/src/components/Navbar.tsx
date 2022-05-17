@@ -10,6 +10,10 @@ const StyledNav = styled.div`
     p {
         font-size: 24px;
     };
+    a {
+        text-decoration: none;
+        color: black;
+    };
 `
 
 const Navbar = () => {
