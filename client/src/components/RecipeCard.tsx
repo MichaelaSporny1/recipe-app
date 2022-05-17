@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledRecipeCard = styled.div`
     width: 19rem;
@@ -20,6 +21,7 @@ const RecipeCard = ({recipe}: any) => {
     return(
         <div>
         <StyledRecipeCard>
+            <Link to={`/recipe/${recipe._id}`}>
             <img 
             src={recipe.imageUrl} 
             alt={recipe.title}
@@ -28,6 +30,7 @@ const RecipeCard = ({recipe}: any) => {
             <h2>{recipe.title}</h2>
             <p>RATING</p>
             <p>{recipe.ingredients.length} INGREDIENTS | {recipe.timeInMins} MINUTES</p>
+            </Link>
         </StyledRecipeCard>
         </div>
     )

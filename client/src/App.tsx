@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import MyStyledHeader from './components/Header';
 import RecipeList from './components/RecipeList';
 import { Routes, Route, NavLink } from 'react-router-dom';
-import RecipesByCategoryList from './components/CategoryList';
+import RecipesByCategoryList from './components/CategoryRecipeList';
 import SingleRecipe from './components/SingleRecipe';
 
 function App() {

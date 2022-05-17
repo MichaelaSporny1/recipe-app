@@ -17,7 +17,7 @@ const RecipeList = () => {
         const loadRecipes = async () => {
             const res = await fetch ('http://localhost:4000/recipes')
             .then(data => data.json());
-            console.log(res, res.data)
+            // console.log(res, res.data)
             setRecipes(res)
         }
         loadRecipes();
