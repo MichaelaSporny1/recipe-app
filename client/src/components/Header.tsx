@@ -7,12 +7,15 @@ const StyledHeader = styled.header`
     background-color: #282c34;
     width: 100%;
     height: 100vh;
+    h1 {
+        margin-top: 7rem;
+    }
 `;
 
-const MyStyledHeader = () => (
+const Header = () => (
     <StyledHeader>
         <h1>Tequila Mockingbird</h1>
     </StyledHeader>
 )
 
-export default MyStyledHeader;
+export default Header;

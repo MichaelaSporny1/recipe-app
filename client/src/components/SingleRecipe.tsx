@@ -25,7 +25,6 @@ const SingleRecipe = () => {
         }
         fetchRecipe();
     }, [])
-    // })
 
     return (
         <StyledWrapper>

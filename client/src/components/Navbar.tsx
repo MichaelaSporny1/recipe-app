@@ -28,8 +28,7 @@ const Navbar = () => {
     }, [])
     return (
         <StyledNav>
-            {categories.map((category: any) => <Link to={`/categories/${category}`}> <p key={category}>{category}</p></Link>)}
-            {/* <p>Testar navbar</p> */}
+            {categories.map((category: any) => <Link to={`/category/${category}`}> <p key={category}>{category}</p></Link>)}
         </StyledNav>
     )
 }

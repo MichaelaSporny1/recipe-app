@@ -12,10 +12,10 @@ const StyledWrapper = styled.div`
 
 const RecipesByCategoryList = () => {
     const [recipes, setRecipes] = useState<any>([]);
-    const { category } = useParams()
+    const { categoryId } = useParams()
     useEffect(() => {
         const fetchRecipes = async () => {
-            const recipes = await fetch(`http://localhost:4000/categories/${category}/recipes`)
+            const recipes = await fetch(`http://localhost:4000/categories/${categoryId}/recipes`)
             .then(res => res.json())
             setRecipes(recipes);
         }

@@ -17,10 +17,6 @@ const StyledRecipeCard = styled.div`
     };   
 `
 
-// const StyledWrapper = styled.div`
-//     display: flex;
-// `
-
 const RecipeCard = ({recipe}: any) => {
     return(
         <div>
