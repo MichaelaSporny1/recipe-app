@@ -6,6 +6,7 @@ import RecipeList from './components/RecipeList';
 import { Routes, Route } from 'react-router-dom';
 import RecipesByCategoryList from './components/CategoryRecipeList';
 import SingleRecipe from './components/SingleRecipe';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<RecipeList/>}/>
           <Route path="category/:categoryId" element={<RecipesByCategoryList/>}/>
           <Route path="recipe/:recipeId" element={<SingleRecipe/>}/>
+          <Route path="*" element={<PageNotFound/>}/>
         </Routes>
     </div>
   );

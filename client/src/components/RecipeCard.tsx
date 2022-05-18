@@ -28,7 +28,7 @@ const RecipeCard = ({recipe}: any) => {
             width="304"
             height="180" />
             <h2>{recipe.title}</h2>
-            <p>RATING</p>
+            <p>{recipe.ratings} RATING</p>
             <p>{recipe.ingredients.length} INGREDIENTS | {recipe.timeInMins} MINUTES</p>
             </Link>
         </StyledRecipeCard>
