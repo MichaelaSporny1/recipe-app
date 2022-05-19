@@ -10,20 +10,39 @@ const StyledWrapper = styled.div`
     margin: auto;
 `
 
+
 const RecipeList = () => {
+    const [searchTerm, setSearchTerm] = useState('');
     const [allRecipes, setRecipes] = useState<IRecipe[]>([]);
 
     useEffect (() => {
+        const getSearchedRecipe = async (searchTerm: string) => {
+            const recipes = await fetch(`http://localhost:4000/recipes/search/${searchTerm}`)
+            .then(res => res.json());
+            setRecipes(recipes);
+        }
+        getSearchedRecipe(searchTerm);
+        
         const loadRecipes = async () => {
-            const res = await fetch ('http://localhost:4000/recipes')
+            const recipes = await fetch ('http://localhost:4000/recipes')
             .then(data => data.json());
-            setRecipes(res)
+            setRecipes(recipes)
         }
         loadRecipes();
-    }, [])
+
+
+        if(searchTerm) {
+            getSearchedRecipe(searchTerm);
+        }else{
+            loadRecipes();
+        }
+
+
+    }, [searchTerm])
 
     return (
         <div>
+            <input type="text" placeholder="FAN MITT LIV" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
             <StyledWrapper>
                 {allRecipes.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>)}
             </StyledWrapper>
