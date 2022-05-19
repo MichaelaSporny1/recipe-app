@@ -23,12 +23,14 @@ const Navbar = () => {
             const category = await fetch('http://localhost:4000/categories')
             .then(res => res.json())
             setCategories(category);
+            console.log("testar categories", category);
         }
         fetchRecipes();
     }, [])
     return (
         <StyledNav>
-            {categories.map((category: any) => <Link to={`/category/${category}`}> <p key={category}>{category}</p></Link>)}
+            {/* {categories.map((category: string) => <Link to={`/category/${category}`} key={category}> <p>{category}</p></Link>)} */}
+            {categories.map((category: any) => <Link to={`/category/${category._id}`} key={category}> <p>{category._id} ({category.count})</p></Link>)}
         </StyledNav>
     )
 }

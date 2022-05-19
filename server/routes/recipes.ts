@@ -12,20 +12,13 @@ router.get('/', async (req: Request, res: Response) => {
 router.get('/:recipeId', async (req: Request, res: Response) => {
     const choosenRecipe = await getRecipeById(req.params.recipeId);
     res.status(200).json(choosenRecipe);
-    console.log("testar by id");
+    // console.log("testar by id");
 })
 
 router.get('/search/:query', async (req: Request, res: Response) => {
     const searchedRecipes = await getRecipesBySearch(req.params.query);
     res.status(200).json(searchedRecipes)
 })
-
-
-// router.get('/:query', async (req: Request, res: Response) => {
-//     const searchedRecipes = await getRecipesBySearch(req.params.query);
-//     res.status(200).json(searchedRecipes);
-//     console.log("testar by id");
-// })
 
 
 export default router;

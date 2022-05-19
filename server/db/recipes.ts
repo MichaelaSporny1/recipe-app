@@ -17,16 +17,4 @@ export const getRecipesBySearch = async (search: string) => {
     return recipes
 }
 
-// export const addRecipe = async (recipe: any) => {
-//     const recipes = new RecipeModel(recipe)
-//     await recipes.save()
-//     return recipes
-// }
-
-
-// export const addTransaction = async (transaktion: TransactionType) => {
-//     const transaction = new TransactionModel(transaktion)
-//     await transaction.save()
-//     return transaction
-//   }
   

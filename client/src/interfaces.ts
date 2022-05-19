@@ -4,13 +4,13 @@ export interface IRecipe {
     description: String;
     imageUrl: String;
     timeInMins: Number;
-    // ratings: number[];
     ratings: Array<number>;
-    // category: string[];
     category: Array<string>;
     ingredients: [{ingredient:string, amount:number, unit:string}];
+    instructions: Array<String>;
+    // ratings: number[];
+    // category: string[];
     // ingredients: any;
     // instructions: [string];
-    instructions: Array<String>;
     // instructions: any;
 }

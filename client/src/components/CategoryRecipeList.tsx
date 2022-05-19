@@ -20,7 +20,7 @@ const RecipesByCategoryList = () => {
             setRecipes(recipes);
         }
         fetchRecipes();
-    }, [])
+    }, [categoryId])
     return (
         <div>
             <StyledWrapper>
