@@ -3,21 +3,19 @@ import recipeRouter from './routes/recipes';
 import categoryRouter from './routes/categories'
 import { connect } from 'mongoose';
 import cors from 'cors';
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
-// dotenv.config();
+dotenv.config();
 
-// console.log(process.env.MONGO_DB_CONNECTION_STRING);
+connect(`${process.env.MONGODB_CONNECTION_STRING}`);
 
-connect('mongodb+srv://michaela:tyEVJwjCrzGq1Ws8@cluster0.iux78.mongodb.net/recipes?retryWrites=true&w=majority')
-// connect(`${process.env.MONGO_DB_CONNECTION_STRING}`);
-
-
+// connect('mongodb+srv://michaela:tyEVJwjCrzGq1Ws8@cluster0.iux78.mongodb.net/recipes?retryWrites=true&w=majority')
 // connect('mongodb://localhost:27017/recipes')
 
 const app = express()
 app.use(json());
 app.use(cors());
+
 const port = process.env.PORT || 4000
 
 
