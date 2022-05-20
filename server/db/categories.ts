@@ -8,10 +8,7 @@ export const getCategories = async () => {
         { $sort: {count: -1}}
     ]);
     return categories;
-
 }
-
-
 
 
 // export const getCategories = async () => {

@@ -4,12 +4,17 @@ import categoryRouter from './routes/categories'
 import { connect } from 'mongoose';
 import cors from 'cors';
 
-connect('mongodb://localhost:27017/recipes')
+connect('mongodb+srv://michaela:tyEVJwjCrzGq1Ws8@cluster0.iux78.mongodb.net/recipes?retryWrites=true&w=majority')
+
+
+
+// connect('mongodb://localhost:27017/recipes')
+
 
 const app = express()
 app.use(json());
 app.use(cors());
-const port = 4000
+const port = process.env.PORT || 4000
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World!')
