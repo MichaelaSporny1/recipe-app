@@ -3,6 +3,7 @@ import RecipeCard from "./RecipeCard";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
+
 const StyledWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
