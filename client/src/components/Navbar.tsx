@@ -20,7 +20,8 @@ const Navbar = () => {
     const [categories, setCategories] = useState<any>([]);
     useEffect(() => {
         const fetchRecipes = async () => {
-            const category = await fetch('http://localhost:4000/categories')
+            // const category = await fetch('http://localhost:4000/categories')
+            const category = await fetch(`${process.env.REACT_APP_API_BASE_URL}/categories`)
             .then(res => res.json())
             setCategories(category);
             console.log("testar categories", category);

@@ -18,7 +18,8 @@ const SingleRecipe = () => {
     const { recipeId } = useParams()
     useEffect(() => {
         const fetchRecipe = async () => {
-        const recipe = await fetch(`http://localhost:4000/recipes/${recipeId}`)
+        // const recipe = await fetch(`http://localhost:4000/recipes/${recipeId}`)
+        const recipe = await fetch(`${process.env.REACT_APP_API_BASE_URL}/recipes/${recipeId}`)
         .then(res => res.json())
         setRecipe(recipe)
         console.log(recipe);

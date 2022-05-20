@@ -11,7 +11,8 @@ const RecipeSearch = () => {
 
     useEffect (() => {
         const getSearchedRecipes = async () => {
-            const res = await fetch (`http://localhost:4000/recipes/search/${searchResult}`)
+            // const res = await fetch (`http://localhost:4000/recipes/search/${searchResult}`)
+            const res = await fetch (`${process.env.REACT_APP_API_BASE_URL}/recipes/search/${searchResult}`)
             .then(data => data.json());
             console.log(res, res.data)
             setSearchedRecipe(res);
