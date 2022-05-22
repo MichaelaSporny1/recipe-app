@@ -13,8 +13,8 @@ connect(`${process.env.MONGODB_CONNECTION_STRING}`);
 // connect('mongodb://localhost:27017/recipes')
 
 const app = express()
-app.use(json());
 app.use(cors());
+app.use(json());
 
 const port = process.env.PORT || 4000
 

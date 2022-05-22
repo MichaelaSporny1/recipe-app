@@ -17,16 +17,16 @@ const RecipeList = () => {
 
     useEffect (() => {
         const getSearchedRecipe = async (searchTerm: string) => {
-            // const recipes = await fetch(`http://localhost:4000/recipes/search/${searchTerm}`)
-            const recipes = await fetch(`${process.env.REACT_APP_API_BASE_URL}/recipes/search/${searchTerm}`)
+            const recipes = await fetch(`http://localhost:4000/recipes/search/${searchTerm}`)
+            // const recipes = await fetch(`${process.env.REACT_APP_API_BASE_URL}/recipes/search/${searchTerm}`)
             .then(res => res.json());
             setRecipes(recipes);
         }
         getSearchedRecipe(searchTerm);
         
         const loadRecipes = async () => {
-            // const recipes = await fetch ('http://localhost:4000/recipes')
-            const recipes = await fetch (`${process.env.REACT_APP_API_BASE_URL}/recipes`)
+            const recipes = await fetch ('http://localhost:4000/recipes')
+            // const recipes = await fetch (`${process.env.REACT_APP_API_BASE_URL}/recipes`)
             .then(data => data.json());
             setRecipes(recipes)
         }
