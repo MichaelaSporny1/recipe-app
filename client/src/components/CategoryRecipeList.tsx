@@ -16,8 +16,8 @@ const RecipesByCategoryList = () => {
     const { categoryId } = useParams()
     useEffect(() => {
         const fetchRecipes = async () => {
-            const recipes = await fetch(`http://localhost:4000/categories/${categoryId}/recipes`)
-            // const recipes = await fetch(`${process.env.REACT_APP_API_BASE_URL}/categories/${categoryId}/recipes`)
+            // const recipes = await fetch(`http://localhost:4000/categories/${categoryId}/recipes`)
+            const recipes = await fetch(`${process.env.REACT_APP_API_BASE_URL}/categories/${categoryId}/recipes`)
             .then(res => res.json())
             setRecipes(recipes);
         }
