@@ -14,7 +14,7 @@ import { Schema, model } from 'mongoose';
 // }
 
 export interface IRecipe {
-    _id: String;
+    _id?: String;
     title: String;
     description: String;
     imageUrl: String;
