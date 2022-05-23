@@ -32,7 +32,7 @@ const Navbar = () => {
     return (
         <StyledNav>
             {/* {categories.map((category: string) => <Link to={`/category/${category}`} key={category}> <p>{category}</p></Link>)} */}
-            {categories.map((category: any) => <Link to={`/category/${category._id}`} key={category}> <p>{category._id} ({category.count})</p></Link>)}
+            {categories.map((category: any) => <Link to={`/category/${category._id}`} key={category._id}> <p>{category._id} ({category.count})</p></Link>)}
         </StyledNav>
     )
 }

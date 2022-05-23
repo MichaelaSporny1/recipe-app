@@ -19,7 +19,7 @@ export interface IRecipe {
     description: String;
     imageUrl: String;
     timeInMins: Number;
-    ratings: Array<number>;
+    ratings: Array<Number>;
     category: Array<string>;
     ingredients: [{ingredient:string, amount:number, unit:string}];
     instructions: Array<String>;

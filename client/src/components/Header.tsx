@@ -2,20 +2,26 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.header`
-    background-image: url(${require(`../assets/cocktail-banner-3.jpg`)});
-    background-size: cover;
+    background-image: url(${require(`../assets/cocktail-banner.jpg`)});
+    background-size: cover, contain;
     background-color: #282c34;
     width: 100%;
-    height: 100vh;
+    height: 75vh;
     h1 {
-        margin-top: 7rem;
+        margin-top: 6rem;
+    }
+    a {
+        text-decoration: none;
+        color: white;
     }
 `;
 
 const Header = () => (
-    <StyledHeader>
-        <h1>Recipe-App</h1>
-    </StyledHeader>
+        <StyledHeader>
+            <Link to="/">
+                <h1>Happy Hour Every Hour</h1>
+            </Link>
+        </StyledHeader>
 )
 
 export default Header;
