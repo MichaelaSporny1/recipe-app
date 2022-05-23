@@ -5,7 +5,7 @@ import { connect } from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config()
 
 connect(`${process.env.MONGODB_CONNECTION_STRING}`);
 
@@ -22,14 +22,6 @@ const port = process.env.PORT || 4000
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World!')
 })
-
-// if (process.env.MONGO_DB_CONNECTION_STRING) {
-//     connect(process.env.MONGO_DB_CONNECTION_STRING).then(() => {
-//         app.listen(port, () => console.log('listening to port: ' + port));
-//     })
-// } else {
-//     console.log('Configuration MONGO_DB_CONNECTION_STRING not set')
-// }
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
