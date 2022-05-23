@@ -22,7 +22,7 @@ const RecipeList = () => {
             .then(res => res.json());
             setRecipes(recipes);
         }
-        getSearchedRecipe(searchTerm);
+        // getSearchedRecipe(searchTerm);
         
         const loadRecipes = async () => {
             // const recipes = await fetch ('http://localhost:4000/recipes')
@@ -30,7 +30,7 @@ const RecipeList = () => {
             .then(data => data.json());
             setRecipes(recipes)
         }
-        loadRecipes();
+        // loadRecipes();
 
 
         if(searchTerm) {
