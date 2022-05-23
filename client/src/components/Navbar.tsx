@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 
 const StyledNav = styled.div`
@@ -8,12 +8,18 @@ const StyledNav = styled.div`
     width: 80%;
     margin: auto;
     p {
-        font-size: 24px;
+        font-size: 18px;
+        padding-left: 5px;
     };
     a {
         text-decoration: none;
         color: black;
     };
+    span {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 `
 
 const Navbar = () => {
@@ -31,8 +37,13 @@ const Navbar = () => {
     }, [])
     return (
         <StyledNav>
-            {/* {categories.map((category: string) => <Link to={`/category/${category}`} key={category}> <p>{category}</p></Link>)} */}
-            {categories.map((category: any) => <Link to={`/category/${category._id}`} key={category._id}> <p>{category._id} ({category.count})</p></Link>)}
+            {categories.map((category: any) => 
+            <NavLink to={`/category/${category._id}`} 
+            style={({ isActive }) => ({
+                color: isActive ? '#4b925d' : '#000000'})} 
+            key={category._id}> 
+            <span><h2>{category._id}</h2><p>({category.count})</p></span> 
+            </NavLink>)}
         </StyledNav>
     )
 }
