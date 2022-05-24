@@ -7,6 +7,7 @@ const StyledRecipeCard = styled.div`
     background-color: lightgrey;
     margin: 1rem;
     border-radius: 5px;
+    box-shadow: -1px 2px 5px 1px #9a9a9abf;
     img {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
