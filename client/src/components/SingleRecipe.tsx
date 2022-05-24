@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Params, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
-// import ReactStars from 'react-stars';
 import Ratings from './Ratings'
 import axios from 'axios';
 import Footer from './Footer';
@@ -32,14 +31,19 @@ const SingleRecipe = () => {
     const { recipeId } = useParams()
     useEffect(() => {
         const fetchRecipe = async () => {
-        // const recipe = await fetch(`http://localhost:4000/recipes/${recipeId}`)
-        const recipe = await fetch(`${process.env.REACT_APP_API_BASE_URL}/recipes/${recipeId}`)
-        .then(res => res.json())
-        setRecipe(recipe)
-        // console.log(recipe);
+            // const recipe = await fetch(`http://localhost:4000/recipes/${recipeId}`)
+            const recipe = await fetch(`${process.env.REACT_APP_API_BASE_URL}/recipes/${recipeId}`)
+            .then(res => res.json())
+            setRecipe(recipe)
         }
         fetchRecipe();
     }, [recipeId])
+
+    const[rate, setRate] = useState(false)
+    const setRateRecipe = () => {
+        setRate(true)
+    }
+
 
     return (
         <>
@@ -54,8 +58,11 @@ const SingleRecipe = () => {
             <div className="descriptionSection">
                 <h1>{recipe.title}</h1>
                 <p>{recipe.description}</p>
-                <p>{recipe.timeInMins} Min</p>
-                <span>{recipe.ratings && <Ratings edit={true} recipeId={recipe._id} recipeRating={recipe.ratings} />}</span>
+                {/* <p>{recipe.ingredients.length} INGREDIENTS | {recipe.timeInMins} MIN</p> */}
+                {/* <span>{recipe.ratings && <Ratings edit={true} recipeId={recipe._id} recipeRating={recipe.ratings} />}</span> */}
+                {(rate === false) ? <><p>Rate {recipe.title}</p>
+                <span onClick={setRateRecipe}>{recipe.ratings && <Ratings edit={true} recipeId={recipe._id} recipeRating={recipe.ratings} />}</span>
+                </>: <p>Thank you for rating!</p>}
             </div>
             <div className="ingredientSection">
                 <p>INGREDIENTS</p>
