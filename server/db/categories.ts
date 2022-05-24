@@ -21,3 +21,11 @@ export const getRecipesByCategorySearch = async (category: String) => {
     })
     return foundRecipe
 }
+
+// export const getRecipeInCategory = async (category: String, title: String) => {
+//     const foundRecipe = await RecipeModel.find({
+//         category: category,
+//         title: { '$regex': title, '$options': 'i'}
+//     })
+//     return foundRecipe
+// }  

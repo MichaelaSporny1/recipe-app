@@ -3,6 +3,7 @@ import RecipeCard from "./RecipeCard";
 import { IRecipe } from "../interfaces";
 import styled from 'styled-components';
 import Footer from './Footer';
+import { getRecipes, getRecipesBySearch } from "../api/requests";
 
 const StyledWrapper = styled.div`
     display: flex;
@@ -23,30 +24,11 @@ const RecipeList = () => {
     const [allRecipes, setRecipes] = useState<IRecipe[]>([]);
 
     useEffect (() => {
-        const getSearchedRecipe = async (searchTerm: string) => {
-            // const recipes = await fetch(`http://localhost:4000/recipes/search/${searchTerm}`)
-            const recipes = await fetch(`${process.env.REACT_APP_API_BASE_URL}/recipes/search/${searchTerm}`)
-            .then(res => res.json());
-            setRecipes(recipes);
-        }
-        // getSearchedRecipe(searchTerm);
-        
-        const loadRecipes = async () => {
-            // const recipes = await fetch ('http://localhost:4000/recipes')
-            const recipes = await fetch (`${process.env.REACT_APP_API_BASE_URL}/recipes`)
-            .then(data => data.json());
-            setRecipes(recipes)
-        }
-        // loadRecipes();
-
-
         if(searchTerm) {
-            getSearchedRecipe(searchTerm);
-        }else{
-            loadRecipes();
+            getRecipesBySearch(`${searchTerm}`).then(recipes => {setRecipes(recipes)})
+        } else {
+            getRecipes().then(recipes => {setRecipes(recipes)})
         }
-
-
     }, [searchTerm])
 
     return (

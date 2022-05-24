@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Ratings from './Ratings'
-import axios from 'axios';
 import Footer from './Footer';
+import { getSingleRecipe } from "../api/requests";
 
 const StyledWrapper = styled.div`
     display: flex;
@@ -18,11 +18,23 @@ const StyledWrapper = styled.div`
         background-color: lightgrey;
         margin-bottom: 1rem;
         padding-top: 1rem;
+        img {
+            border-radius: 5px;
+        }
     };
     .ingredientSection, .instructionSection {
-        width: 30rem;
-        height: 10rem;
+        width: 22rem;
+        min-height: 10rem;
         background-color: lightgrey;
+        ul, ol {
+            text-align: start;
+            margin-left: 1rem;
+        }
+        h3 {
+            text-align: start;
+            margin-left: 1rem;
+            padding-left: 1.5rem;
+        }
     };
 `
 
@@ -30,20 +42,13 @@ const SingleRecipe = () => {
     const [recipe, setRecipe] = useState<any>({});
     const { recipeId } = useParams()
     useEffect(() => {
-        const fetchRecipe = async () => {
-            // const recipe = await fetch(`http://localhost:4000/recipes/${recipeId}`)
-            const recipe = await fetch(`${process.env.REACT_APP_API_BASE_URL}/recipes/${recipeId}`)
-            .then(res => res.json())
-            setRecipe(recipe)
-        }
-        fetchRecipe();
+        getSingleRecipe(`${recipeId}`).then(recipe => {setRecipe(recipe)})
     }, [recipeId])
 
     const[rate, setRate] = useState(false)
     const setRateRecipe = () => {
         setRate(true)
     }
-
 
     return (
         <>
@@ -65,13 +70,13 @@ const SingleRecipe = () => {
                 </>: <p>Thank you for rating!</p>}
             </div>
             <div className="ingredientSection">
-                <p>INGREDIENTS</p>
+                <h3>INGREDIENTS</h3>
                 <ul>
                 {recipe.ingredients && recipe.ingredients.map((ingredients: any) => (<li key={ingredients.ingredient}>{ingredients.amount} {ingredients.unit} {ingredients.ingredient}</li>))}
                 </ul>
             </div>
             <div className="instructionSection">
-                <p>INSTRUCTIONS</p>
+                <h3>INSTRUCTIONS</h3>
                 <ol>
                 {recipe.instructions && recipe.instructions.map((instructions: any) => (<li key={instructions}>{instructions} </li>))}
                 </ol>

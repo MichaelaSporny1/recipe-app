@@ -8,16 +8,6 @@ interface RatingProps {
     recipeId: string
 }
 
-// const calculateAverage = (rating: any) => {
-//     if(rating.length > 0) {
-//         const sum = rating.reduce((a: number, b: number) => a + b);
-//         return sum / rating.length;
-//     }
-//     else{
-//         return
-//     }
-// };
-
 const CalculateAverage = (rating: any) => {
     if(rating.length > 0){
         const sum = rating.reduce((a: number, b: number) => a + b);
@@ -27,7 +17,7 @@ const CalculateAverage = (rating: any) => {
     }
 };
 
-const starColor = '#41834a';
+const starColor = '#000000';
 const emptyStarColor = '#abaeab';
 
 const StyledStarRating = styled(ReactStars)`

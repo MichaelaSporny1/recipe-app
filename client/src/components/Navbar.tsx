@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
+import { getCategories } from "../api/requests";
 
 const StyledNav = styled.div`
     display: flex;
@@ -25,16 +26,9 @@ const StyledNav = styled.div`
 const Navbar = () => {
     const [categories, setCategories] = useState<any>([]);
     useEffect(() => {
-        const fetchRecipes = async () => {
-            console.log("hallå")
-            // const category = await fetch('http://localhost:4000/categories')
-            const category = await fetch(`${process.env.REACT_APP_API_BASE_URL}/categories`)
-            .then(res => res.json())
-            setCategories(category);
-            console.log(category)
-        }
-        fetchRecipes();
+        getCategories().then(category => {setCategories(category)})
     }, [])
+
     return (
         <StyledNav>
             {categories.map((category: any) => 

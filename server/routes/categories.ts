@@ -19,6 +19,11 @@ router.get('/:categoryName/recipes', async (req: Request, res: Response) => {
     res.status(200).json(category)
 })
 
+// router.get('/:categoryName/:query', async (req: Request, res: Response) => {
+//     const searchedRecipe = await getRecipeInCategory(req.params.categoryName, req.params.query)
+//     res.status(200).json(searchedRecipe)
+// })
+
 export default router;
 
 // var mongoose = require('mongoose');
