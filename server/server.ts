@@ -9,9 +9,6 @@ dotenv.config()
 
 connect(`${process.env.MONGODB_CONNECTION_STRING}`);
 
-// connect('mongodb+srv://michaela:tyEVJwjCrzGq1Ws8@cluster0.iux78.mongodb.net/recipes?retryWrites=true&w=majority')
-// connect('mongodb://localhost:27017/recipes')
-
 const app = express()
 app.use(cors());
 app.use(json());
