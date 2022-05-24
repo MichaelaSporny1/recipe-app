@@ -18,16 +18,17 @@ interface RatingProps {
 //     }
 // };
 
-const calculateAverage = (rating: any) => {
+const CalculateAverage = (rating: any) => {
+    if(rating.length > 0){
         const sum = rating.reduce((a: number, b: number) => a + b);
         return sum / rating.length;
+    } else {
+        return
+    }
 };
 
-
-
-
-const starColor = '#145858';
-const emptyStarColor = '#7faf7b';
+const starColor = '#41834a';
+const emptyStarColor = '#abaeab';
 
 const StyledStarRating = styled(ReactStars)`
     display: flex;
@@ -37,13 +38,20 @@ const StyledStarRating = styled(ReactStars)`
 const Ratings = ({ recipeRating, recipeId, edit}: RatingProps) => {
     const ratingChanged = async (newRating: any) => {
         console.log(recipeId, "testar single", newRating)
-        await postRating(recipeId, newRating);
+        const response = await postRating(recipeId, {ratings: newRating});
+        if(response.status === 200){
+            console.log('Rating ok')
+        }
+        else{
+            console.log('Rating failed')
+        }
+        // await postRating(recipeId, newRating);
     }
     return (
         <StyledStarRating
         count={5}
         edit={edit}
-        value={calculateAverage(recipeRating)}
+        value={CalculateAverage(recipeRating)}
         onChange={ratingChanged}
         half={false}
         color1={emptyStarColor}

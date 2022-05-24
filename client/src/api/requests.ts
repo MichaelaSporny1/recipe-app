@@ -14,6 +14,7 @@ axios.defaults.baseURL = `${process.env.REACT_APP_API_BASE_URL}`;
 
 
 export const postRating = async(recepieId: string, rating: object) =>{
+    console.log(rating, "hallåååååå")
     try{
       const postedRating = await axios.post(`/recipes/${recepieId}/ratings`, rating)
       return postedRating
