@@ -22,7 +22,6 @@ const RecipeSearch = () => {
 
     return (
         <div>
-        <h1>Hej test</h1>
         <input type="text" placeholder="Search"/>
         {searchedRecipe.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>)}
         </div>

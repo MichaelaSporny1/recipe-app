@@ -12,6 +12,7 @@ const StyledWrapper = styled.div`
 `
 
 const RecipesByCategoryList = () => {
+    const [searchTerm, setSearchTerm] = useState('');
     const [recipes, setRecipes] = useState<any>([]);
     const { categoryId } = useParams()
     useEffect(() => {
@@ -23,6 +24,7 @@ const RecipesByCategoryList = () => {
         }
         fetchRecipes();
     }, [categoryId])
+    
     return (
         <div>
             <StyledWrapper>
