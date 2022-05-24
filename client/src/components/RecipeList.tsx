@@ -33,7 +33,7 @@ const RecipeList = () => {
 
     return (
         <>
-            <Input type="text" placeholder="FAN MITT LIV" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
+            <Input type="text" placeholder="Search" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
             <StyledWrapper>
                 {allRecipes.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>)}
             </StyledWrapper>

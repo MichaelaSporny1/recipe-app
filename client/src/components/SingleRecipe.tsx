@@ -63,8 +63,6 @@ const SingleRecipe = () => {
             <div className="descriptionSection">
                 <h1>{recipe.title}</h1>
                 <p>{recipe.description}</p>
-                {/* <p>{recipe.ingredients.length} INGREDIENTS | {recipe.timeInMins} MIN</p> */}
-                {/* <span>{recipe.ratings && <Ratings edit={true} recipeId={recipe._id} recipeRating={recipe.ratings} />}</span> */}
                 {(rate === false) ? <><p>Rate {recipe.title}</p>
                 <span onClick={setRateRecipe}>{recipe.ratings && <Ratings edit={true} recipeId={recipe._id} recipeRating={recipe.ratings} />}</span>
                 </>: <p>Thank you for rating!</p>}
