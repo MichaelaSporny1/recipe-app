@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Ratings from './Ratings';
 
 const StyledRecipeCard = styled.div`
     width: 19rem;
@@ -29,7 +30,10 @@ const RecipeCard = ({recipe}: any) => {
             width="304"
             height="180" />
             <h2>{recipe.title}</h2>
-            <p>{recipe.ratings} RATING</p>
+            {/* <p>{recipe.ratings} RATING</p> */}
+            <span>
+                <Ratings edit={false} recipeId={recipe._id} recipeRating={recipe.ratings}/>
+            </span>
             <p>{recipe.ingredients.length} INGREDIENTS | {recipe.timeInMins} MINUTES</p>
             </Link>
         </StyledRecipeCard>
